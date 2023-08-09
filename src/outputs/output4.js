@@ -1,17 +1,8 @@
-import { fetchURL } from "../utils";
+import { sampleAsync } from "../utils";
 
-export const output4 =(URLs)=>{
-    const promiseArray=[];
-    for (const URL of URLs){
-        const promise = fetchURL(URL);
-        promiseArray.push(promise);
-    }
+export const output4 =(isSuccess)=>{
+    const promiseArray=[sampleAsync(true),sampleAsync(isSuccess),sampleAsync(true)];
     Promise.all(promiseArray)
-        .then((resArr)=>{
-            for (const res of resArr) {
-                console.log(res);
-            }
-        })
+        .then((resArr)=> console.log(resArr))
         .catch((e)=>console.log(e));
-
 }

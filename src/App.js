@@ -1,5 +1,5 @@
 import './App.css';
-import { output1, output2,output3, output4 } from './outputs/index';
+import { output1, output2, output3, output4, output5, output6_forEach, output6_forOf} from './outputs/index';
 
 function App() {
 
@@ -20,9 +20,9 @@ function App() {
             <button onClick={output1}>Call</button>
           </li>
           <li>
-            then,catchによるエラーハンドリングとタイムアウト
-            <button onClick={()=>output2('https://httpbin.org/get')}>Call Success</button>
-            <button onClick={()=>output2('https://httpbin.org/status/500')}>Call Error</button>
+            then,catchによるエラーハンドリング
+            <button onClick={()=>output2(true)}>Call Success</button>
+            <button onClick={()=>output2(false)}>Call Error</button>
           </li>
           <li>
             catch.thenで正常系に戻る
@@ -30,10 +30,10 @@ function App() {
           </li>
           <li>
             promise.allの利用（何か足りなかったらエラー吐くようにする）
-            <button onClick={()=>output4(['https://httpbin.org/get','https://httpbin.org/get','https://httpbin.org/get'])}>
+            <button onClick={()=>output4(true)}>
               Call Success
             </button>
-            <button onClick={()=>output4(['https://httpbin.org/status/500','https://httpbin.org/get','https://httpbin.org/get'])}>
+            <button onClick={()=>output4(false)}>
               Call Error
             </button>
           </li>
@@ -42,9 +42,21 @@ function App() {
           </li>
           <li>
             async functionの例外の自動キャッチと、呼び出し元関数でのtry-catchによるエラーハンドリング
+            <button onClick={()=>output5(true)}>
+              Call Success
+            </button>
+            <button onClick={()=>output5(false)}>
+              Call Error
+            </button>
           </li>
           <li>
             await で停止する処理のスコープ（トップレベル）の確認
+            <button onClick={()=>output6_forOf()}>
+              Call ForOf
+            </button>
+            <button onClick={()=>output6_forEach()}>
+              Call ForEach
+            </button>
           </li>
         </ol>
       </div>

@@ -1,15 +1,7 @@
-import { fetchURL } from "../utils"
+import { sampleAsync } from "../utils"
 
-const timeoutTIme=10000;
-
-export const output2 =(URL)=>{
-    console.log('loading...');
-    const promise=new Promise ((resolve,reject)=>{
-        setTimeout(()=>reject('timeout error'),timeoutTIme);
-        fetchURL(URL).then(v=> resolve(v)).catch(e=> reject(e));
-    });
-
-    promise
+export const output2 =async (isSuccess)=>{
+    sampleAsync(isSuccess)
         .then(v=> console.log('success. value:',v))
         .catch(e=> console.log('fail. error:',e));
 };
